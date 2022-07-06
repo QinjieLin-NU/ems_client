@@ -92,7 +92,7 @@ Specifically, `version_seed` specifies the version number of a pipeline. User mu
 
 ## 4 Run experiments.
 
-`run.py` specifies the search space for pipelines and pipelines file name.  Then by calling `ems.run_configurations()`, EMS runs the pipeline parallel for each specified configuration. By calling `ems.get_best_config()`, EMS return the best configurations according to the repored metrics in the task.
+`run.py` specifies the search space for pipelines and pipelines file name.  Then by calling `ems.run_configurations()`, EMS runs the pipeline parallel for each specified configuration. By calling `ems.get_best_config()`, EMS return the best configurations according to the repored metrics in the task.By calling `ems.get_results()`, EMS return a list of repored metrics of all running experiments.
 
 ```ruby
 import ems
@@ -111,6 +111,13 @@ def main():
     pipeline_dag = pipeline_dag,
     search_space = search_space,
   )
+
+  # Get experiment results
+  results = ems.get_results(
+    pipeline_dag = pipeline_dag,
+    search_space = search_space,
+  )
+  print("Reported metrics",results)
 
   # Analyze results
   best_config = ems.get_best_config(
