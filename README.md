@@ -1,4 +1,6 @@
 # EMS Client Documentation
+![](./docs/overview.png)
+
 
 ## Quickstart
 
