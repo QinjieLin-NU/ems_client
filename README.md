@@ -92,7 +92,7 @@ def pipeline_flow(pipeline_name):
 Specifically, `version_seed` specifies the version number of a pipeline. User must specify the task flow and computation resource in `pipelineflow()` funcition. The computation resource is specified by `ems.ComputationInstance()` class, The task flow is a list of `ems.create_task()`, each one specifying the task name, module path, computation and dependency. If we have a task depedening on "add" task, we use `deps={"add": ems.Dep("add"),}`
 
 
-## 4 Run experiments.
+## 4 EMS Entroypoint.
 
 `run.py` specifies the search space for pipelines and pipelines file name.  Then by calling `ems.run_configurations()`, EMS runs the pipeline parallel for each specified configuration. By calling `ems.get_best_config()`, EMS return the best configurations according to the repored metrics in the task.By calling `ems.get_results()`, EMS return a list of repored metrics of all running experiments.
 
