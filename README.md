@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
 In this file, the `main()` function should use `ems.task` decrator to obtained configurations from EMS. The task can report metric by returning a dictionary. 
 
-The input arguments contains `config` and `*args`. `config` represents the configuration infomation and `args` contains the path infomation for this task. `args.task_result_path` and `args.{dependency_task_name}` are two important arguments in experiments. Specifically,  `args.task_result_path` is the folder for saving task generated result. For example use should save trained model in `args.task_result_path`. If the a model training task (name=A) is depending on a data preprocess task(name=B). Then task A can get result from task B by reading files in the `args.B` folder.
+The input arguments contains `config` and `*args`. `config` represents the configuration infomation and `args` contains the path infomation for this task. `args.task_result_path` and `args.{dependency_task_name}` are two important arguments in experiments. These two arguments are list of string. Specifically,  `args.task_result_path` is the folder for saving task generated result. For example use should save trained model in `args.task_result_path`. If the a model training task (name=A) is depending on a data preprocess task(name=B). Then task A can get result from task B by reading files in the `args.B` folder.
 
 ## 2 Pipeline Defnition.
 
