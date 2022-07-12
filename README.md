@@ -55,7 +55,7 @@ In this example, the `ems/tasks/add/__main__.py` should look like:
 import ems
 
 @ems.task
-def main(config, *args):
+def main(config, args):
   a = config.params.a
   b = config.params.b
 

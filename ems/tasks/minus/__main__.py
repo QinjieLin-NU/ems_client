@@ -2,7 +2,7 @@ import ems
 import torch 
 
 @ems.task
-def main(config, *args):
+def main(config, args):
   a = config.params.a
   b = config.params.b  
 
