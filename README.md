@@ -150,4 +150,6 @@ ems_run --client_name="client1" --server_endpoint="http://192.168.100.104:8266" 
 
 More example is in [link](https://github.com/QinjieLin-NU/ems_client_examples).
 
+## APIS
 
+Detailed API documentation is in [link](docs/API.md).
