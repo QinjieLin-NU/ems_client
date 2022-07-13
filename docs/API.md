@@ -6,7 +6,7 @@
 
 * [get_results()](#getresults)
 
-* [get_best_config()](#getbestconfig)
+* [get_best_config()](#get_bestconfig())
 
 
 ## APIs in task definition
