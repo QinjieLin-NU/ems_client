@@ -2,23 +2,23 @@
 
 ## APIs in Run.py 
 
-* [run_configurations()](#runconfigurations)
+* [run_configurations()](#run_configurations)
 
-* [get_results()](#getresults)
+* [get_results()](#get_results)
 
-* [get_best_config()](#get_bestconfig)
+* [get_best_config()](#get_best_config)
 
 
 ## APIs in task definition
 
 * [task](#task)
-* [report_metric()](#reportmetric)
+* [report_metric()](#report_metric)
 
 
 ## APIs in pipeline definition
 
 * [pipeline](#pipeline)
-* [create_task()](#createtask)
+* [create_task()](#create_task)
 * [ComputationInstance()](#computationinstance)
 * [Dep()](#dep)
 
