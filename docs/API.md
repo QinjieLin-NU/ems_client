@@ -279,7 +279,67 @@
 
   &emsp;ems.Dep
 
-
 ## task
 
+  task decrator should be used in task entrypoint function.
+
+  **Usage Syntax**
+
+  ```ruby
+  import ems
+
+  @ems.task
+  def main(config, args):
+    a = config.params.a
+    b = config.params.b
+
+    score = a ** 2 + b
+    return {"score":score}
+
+  if __name__ == "__main__":
+    main()
+  ```
+
+  **Parameter**
+    
+  * config (dataclass)[Required] 
+
+    The dataclass containing the configuration values.
+
+  * args (argparser)[Required] 
+
+    Several important argument is parsed in the `args`. `args.task_result_path` and `args.{dependency_task_name}` are two important arguments in experiments. These two arguments are list of string. Specifically,  `args.task_result_path[0]` is the folder for saving task generated result. For example use should save trained model in `args.task_result_path[0]`. If the a model training task (name=A) is depending on a data preprocess task(name=B). Then task A can get result from task B by reading files in the `args.B[0]` folder.
+
+  **Return Object**
+
+  &emsp;Dict. The return object is the reported metric. 
+
+
 ## pipeline
+
+  The pipeline decrator should be used in the pipeline DAG python file.
+
+  **Usage Syntax**
+
+  ```ruby
+  import ems
+
+  version_seed = "0001"
+
+  @ems.pipeline
+  def pipeline_flow(pipeline_name):
+    cpu_instance = ems.ComputationInstance(vcpus=15, gpus=0, memory=15)
+    flow = [ems.create_task(name="add", ver=pipeline_name, 
+      path="add", computation=cpu_instance, deps={}),]
+    return flow
+  ```
+
+  **Parameter**
+    
+  * pipeline_name (String)[Required] 
+
+    The unified version of pipeline name. With the same configuration and pipeline DAG file name, the `pipeline_name` is the same. This is used for configuration management.
+
+  **Return Object**
+
+  &emsp;List of ems.Task. 
