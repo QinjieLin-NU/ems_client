@@ -23,7 +23,7 @@
 * [Dep()](#dep)
 
 
-### run_configurations()
+## run_configurations()
 
   Given search space and pipeline DAG, this function runs pipelines paralelly, with each configuration in search space.
 
@@ -57,7 +57,6 @@
   **Return Type**
 
     None
-
 
 
 ### get_results()
