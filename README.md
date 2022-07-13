@@ -145,21 +145,6 @@ We can run experiments executing following command in the terminal. We can simpl
 ems_run --client_name="client1" --server_endpoint="http://192.168.100.104:8266" --code_folder="." --entrypoint="python run.py"
 ```
 
-## Additional example
-
-We use a pytorch example of trainng mnist dataset, [link](https://github.com/pytorch/examples/blob/main/mnist/main.py). For using it with ems, we need to do folllowing modifications.
-
-  1. delete argsparser, 
-
-  2. replace argsparse argument by params.py
-  
-  3. replace argsparser as config.params in the `__main__.py`
-
-Then, we use following command to run it.
-
-```
-ems-run --client_name="client2" --entrypoint="python run_mnist.py"
-```
 
 ## More
 
