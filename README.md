@@ -70,7 +70,7 @@ In this file, the `main()` function should use `ems.task` decrator to obtained c
 
 The input arguments contains `config` and `*args`. `config` represents the configuration infomation and `args` contains the path infomation for this task. `args.task_result_path` and `args.{dependency_task_name}` are two important arguments in experiments. These two arguments are list of string. Specifically,  `args.task_result_path[0]` is the folder for saving task generated result. For example use should save trained model in `args.task_result_path[0]`. If the a model training task (name=A) is depending on a data preprocess task(name=B). Then task A can get result from task B by reading files in the `args.B[0]` folder.
 
-## 2 Pipeline Defnition.
+## 3 Pipeline Defnition.
 
 `ems/pipelines/pipeline_v1.py` represents a pipeline DAG of EMS experiment. In EMS, a experiment is called a pipeline. This file specified the computation resources of each task and task flow of a pipeline.
 
