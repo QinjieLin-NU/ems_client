@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
 In this file, the `main()` function should use `ems.task` decrator to obtained configurations from EMS. The task can report metric by returning a dictionary. 
 
-The input arguments contains `config` and `*args`. `config` represents the configuration infomation and `args` contains the path infomation for this task. `args.task_result_path` and `args.{dependency_task_name}` are two important arguments in experiments. These two arguments are list of string. Specifically,  `args.task_result_path` is the folder for saving task generated result. For example use should save trained model in `args.task_result_path`. If the a model training task (name=A) is depending on a data preprocess task(name=B). Then task A can get result from task B by reading files in the `args.B` folder.
+The input arguments contains `config` and `*args`. `config` represents the configuration infomation and `args` contains the path infomation for this task. `args.task_result_path` and `args.{dependency_task_name}` are two important arguments in experiments. These two arguments are list of string. Specifically,  `args.task_result_path[0]` is the folder for saving task generated result. For example use should save trained model in `args.task_result_path[0]`. If the a model training task (name=A) is depending on a data preprocess task(name=B). Then task A can get result from task B by reading files in the `args.B[0]` folder.
 
 ## 2 Pipeline Defnition.
 
@@ -144,3 +144,25 @@ We can run experiments executing following command in the terminal. We can simpl
 ```
 ems_run --client_name="client1" --server_endpoint="http://192.168.100.104:8266" --code_folder="." --entrypoint="python run.py"
 ```
+
+## Additional example
+
+We use a pytorch example of trainng mnist dataset, [link](https://github.com/pytorch/examples/blob/main/mnist/main.py). For using it with ems, we need to do folllowing modifications.
+
+  1. delete argsparser, 
+
+  2. replace argsparse argument by params.py
+  
+  3. replace argsparser as config.params in the `__main__.py`
+
+Then, we use following command to run it.
+
+```
+ems-run --client_name="client2" --entrypoint="python run_mnist.py"
+```
+
+## More
+
+More example is in [link](https://github.com/QinjieLin-NU/ems_client_examples).
+
+
